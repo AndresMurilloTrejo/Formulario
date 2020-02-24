@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="css/estilo.css" />
+  <link rel="stylesheet" href="css/tabs.css" />
+</head>
+
+<body>
+  <center>
+    <div id="tabs">
+      <div class="tab" id="tab">
+        <button class="tablinks" onclick="tabs(event, 'Registro')">
+          Registrate!
+        </button>
+        <button class="tablinks" onclick="tabs(event, 'Login')">
+          Log In!
+        </button>
+      </div>
+      <div id="Registro" class="tabcontent">
+
+        <form method="post">
+
+          <h1>Formulario Registro</h1>
+
+          <p id="errores"></p>
+          <label for="nombre">Nombre:*</label>
+          <input type="text" id="nombre" placeholder="Introduce tu nombre..." pattern="[A-Za-z]{3,20}" required /><br />
+          <label for="apellidos">Apellidos:*</label>
+          <input type="text" id="apellidos" placeholder="Introduce tus apellidos..." pattern="[A-Za-z]{3,30}"
+            required /><br />
+          <label for="email">Email:*</label>
+          <input type="text" id="email" placeholder="Introduce tu email..."
+            pattern="([0-9]{9}|[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$)" required /><br />
+          <label for="pass">Contraseña:*</label>
+          <input type="password" id="pass" placeholder="Introduce tu contraseña..." pattern="[a-zA-Z0-9]{8,}"
+            required /><br />
+          <label for="pass">Confirmar Contraseña:*</label>
+          <input type="password" id="passBuena" placeholder="Introduce tu contraseña..." pattern="[a-zA-Z0-9]{8,}"
+            required /><br />
+          <label for="birth">Introduce tu fecha de nacimiento:*</label>
+          <input type="date" id="birth" required /><br />
+          <button id="registro" value="Confirmar" onclick="inicio()">
+            Confirmar Registro
+          </button>
+
+        </form>
+
+      </div>
+
+      <div id="Login" class="tabcontent">
+        <form method="post" action="">
+
+          <h1>Formulario de login</h1>
+          <p id="erroresLogin"></p>
+          <label for="nUsuario">E-mail:</label>
+          <input type="text" id="nUsuario" pattern="([0-9]{9}|[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$)" required /><br />
+          <label for="pUsuario">Contraseña:</label>
+          <input type="password" id="pUsuario" required /><br />
+          <button id="login" value="Login!" onclick="inicio()">
+            Login
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+    <div id="validarRegistro">
+      <h1>Has entrado a la página web</h1>
+      <p id="saludo"></p>
+      <button onclick="salir()">Salir de la cuenta</button>
+    </div>
+
+
+
+  </center>
+
+  <!--Scripts-->
+  <script src="js/tabs.js"></script>
+  <script src="js/validacion.js"></script>
+  <script src="js/cookies.js"></script>
+
+</body>
+
+</html>
