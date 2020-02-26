@@ -6,6 +6,7 @@ function crearCookie(nombre, valor, expira) {
   var expire = "expires=" + fecha.toUTCString();
 
   document.cookie = nombre + "=" + valor + ";" + expire + ";path=/";
+  console.log(document.cookie);
 }
 // Lectura de cookie
 function leerCookie(nombre) {
@@ -31,18 +32,18 @@ function salir() {
 function pInicio() {
   document.getElementById("tabs").style.display = "inline";
   let forms = document.getElementsByTagName("forms");
-  for (let c = 0; c < forms.length; c++) forms[c].style.display = "inline";
+  for (let i = 0; i < forms.length; i++) forms[i].style.display = "inline";
   document.getElementById("validarRegistro").style.display = "none";
 
   let inputs = document.getElementsByTagName("input");
-  for (let c = 0; c < inputs.length; c++) inputs[c].value = "";
+  for (let i = 0; i < inputs.length; i++) inputs[i].value = "";
 }
 
 function registrado(usuario) {
   borrarError();
   document.getElementById("tabs").style.display = "none";
   let forms = document.getElementsByTagName("forms");
-  for (let c = 0; c < forms.length; c++) forms[c].style.display = "none";
+  for (let i = 0; i < forms.length; c++) forms[i].style.display = "none";
   document.getElementById("validarRegistro").style.display = "inline";
   if (document.cookie) {
     document.getElementById("logged").innerHTML =

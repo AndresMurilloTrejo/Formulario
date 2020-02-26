@@ -1,17 +1,13 @@
 window.onload = inicio();
 
-
-
 function inicio() {
   borrarError();
   if (document.cookie == "") {
     document
       .getElementById("registro")
       .addEventListener("click", Registro, false);
-    document
-      .getElementById("login")
-      .addEventListener("click", Login, false);
-  } else validarRegistro();
+    document.getElementById("login").addEventListener("click", Login, false);
+  } else registrado();
 }
 
 //Comprobamos que el formulario se rellena correctamente
@@ -19,7 +15,7 @@ var usuarios = [];
 var pass = [];
 
 function Registro(e) {
-  errorRegistro();
+  borrarError();
   e.preventDefault();
 
   if (
@@ -30,17 +26,19 @@ function Registro(e) {
     trueTruePass()
   ) {
     alert("Se ha completado el registro");
-    usuarios[document.getElementById("email").value] = document.getElementById("nombre").value;
+    usuarios[document.getElementById("email").value] = document.getElementById(
+      "nombre"
+    ).value;
     pass.push(document.getElementById("pass").value);
     crearCookie(
       document.getElementById("email").value,
       document.getElementById("nombre").value,
       1
     );
-    validarRegistro(document.getElementById("email").value);
+
+    registrado(document.getElementById("email").value);
     return true;
   } else e.preventDefault();
-
 }
 
 //Comprobar que el formulario de login tiene todos los campos correctos
@@ -54,8 +52,8 @@ function Login() {
 
   if (usuarios[logUser] != "" && pass.includes(logPass)) {
     alert("Ha iniciado sesion");
-    crearCookie(logUser, usuarios[logUser, 1]);
-    validarRegistro(logUser);
+    crearCookie(logUser, usuarios[(logUser, 1)]);
+    registrado(logUser);
     return true;
   } else {
     errorMsg("El usuario es erroneo o no existe");
@@ -69,7 +67,8 @@ function trueName() {
   var elemento = document.getElementById("nombre");
 
   if (!elemento.checkValidity()) {
-    if (elemento.validity.valueMissing) error(elemento, "El campo nombre es obligatorio");
+    if (elemento.validity.valueMissing)
+      error(elemento, "El campo nombre es obligatorio");
     if (elemento.validity.patternMismatch)
       error(elemento, "El campo nombre no cumple los requisitos");
     return false;
@@ -85,7 +84,8 @@ function trueSurname() {
   var elemento = document.getElementById("apellidos");
 
   if (!elemento.checkValidity()) {
-    if (elemento.validity.valueMissing) error(elemento, "El campo apellido es obligatorio");
+    if (elemento.validity.valueMissing)
+      error(elemento, "El campo apellido es obligatorio");
     if (elemento.validity.patternMismatch)
       error(elemento, "El campo apellido no cumple los requisitos");
     return false;
@@ -98,13 +98,14 @@ function trueEmail() {
   var elemento = document.getElementById("email");
 
   if (!elemento.checkValidity()) {
-    if (elemento.validity.valueMissing) error(elemento, "El campo e-mail es obligatorio");
+    if (elemento.validity.valueMissing)
+      error(elemento, "El campo e-mail es obligatorio");
     if (elemento.validity.typeMismatch)
       error(elemento, "El campo e-mail no cumple los requisitos");
     return false;
   }
 
-  if (users.includes(elemento.value)) {
+  if (usuarios.includes(elemento.value)) {
     error(elemento, "E-mail ya registrado");
     return false;
   }
@@ -119,7 +120,8 @@ function truePass() {
   var elemento = document.getElementById("pass");
 
   if (!elemento.checkValidity()) {
-    if (elemento.validity.valueMissing) error(elemento, "El campo contraseña es obligatorio");
+    if (elemento.validity.valueMissing)
+      error(elemento, "El campo contraseña es obligatorio");
     if (elemento.validity.patternMismatch)
       error(elemento, "El campo contraseña no cumple los requisitos");
     return false;
@@ -169,6 +171,6 @@ function errorLogin(elemento, mensaje) {
 // Limpiar los errores al volver a mandar el formulario para comprobar si sonc correctos
 function borrarError() {
   var formulario = document.forms[0];
-  for (var c = 0; c < formulario.elements.length; c++)
-    formulario.elements[c].className = "";
+  for (var i = 0; i < formulario.elements.length; i++)
+    formulario.elements[i].className = "";
 }
