@@ -53,7 +53,7 @@
               type="password"
               id="pass"
               placeholder="Introduce tu contraseña..."
-              pattern="[a-zA-Z0-9\W]{8,}"
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})"
               required
             /><br />
             <label for="pass">Confirmar Contraseña:*</label>
@@ -61,7 +61,7 @@
               type="password"
               id="passBuena"
               placeholder="Introduce tu contraseña..."
-              pattern="[a-zA-Z0-9\W]{8,}"
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})"
               required
             /><br />
             <label for="birth">Introduce tu fecha de nacimiento:*</label>
@@ -87,7 +87,7 @@
             <input
               type="password"
               id="pUsuario"
-              pattern="[a-zA-Z0-9\W]{8,}"
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})"
               required
             /><br />
             <button id="login" value="Login" onclick="inicio()">
